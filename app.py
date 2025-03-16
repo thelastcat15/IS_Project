@@ -108,11 +108,9 @@ elif page == "เครดิต":
     st.header("ชุดข้อมูล")
     st.write("### ชุดข้อมูลที่ 1: ข้อมูลยอดขาย")
     st.write("ที่มา: [Walmart Sales Data Analysis](https://github.com/Kash1r/Walmart-Sales-Data-Analysis)")
-    st.write("ชุดข้อมูลนี้มีข้อมูลยอดขายของร้านค้าที่ได้รับอิทธิพลจากปัจจัยต่างๆ เช่น วันที่, อุณหภูมิ, ราคาน้ำมัน, CPI, และอัตราการว่างงาน")
     
     st.write("### ชุดข้อมูลที่ 2: ภาพสภาพอากาศ")
     st.write("ที่มา: [Multi-class Weather Dataset](https://www.kaggle.com/datasets/janmejaybhoi/multi-class-weather-dataset)")
-    st.write("ชุดข้อมูลนี้ประกอบด้วยภาพสภาพอากาศแบ่งเป็น 4 ประเภท: มีเมฆมาก, ฝนตก, แดดจัด, และพระอาทิตย์ขึ้น")
     
     st.header("เทคโนโลยีที่ใช้")
     st.write("### ไลบรารี")
