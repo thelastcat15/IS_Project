@@ -34,11 +34,10 @@ nn_model = load_model("nn_model.h5")
 
 # UI ของแอป Streamlit
 st.sidebar.title("เมนูนำทาง")
-page = st.sidebar.radio("ไปที่", ["หน้าแรก", "ข้อมูล & โมเดล", "ทดสอบ Random Forest", "ทดสอบ Linear Regression", "ทดสอบ Neural Network"])
+page = st.sidebar.radio("ไปที่", ["หน้าแรก", "ข้อมูล & โมเดล", "ทดสอบ Random Forest", "ทดสอบ Linear Regression", "ทดสอบ Neural Network", "เครดิต"])
 
 if page == "หน้าแรก":
-    st.title("โครงการทำนายยอดขาย & จำแนกภาพ")
-    st.write("โครงการนี้ใช้ Machine Learning และ Neural Network เพื่อทำนายยอดขายและจำแนกภาพสภาพอากาศ")
+    st.title("ทำนายยอดขาย & จำแนกสภาพอากาศ")
 
 elif page == "ข้อมูล & โมเดล":
     st.title("ข้อมูล & คำอธิบายโมเดล")
@@ -87,3 +86,29 @@ elif page == "ทดสอบ Neural Network":
         st.image(img, caption="ภาพที่อัปโหลด", use_column_width=True)
         prediction = predict_image(img, nn_model)
         st.write(f"### คลาสที่คาดการณ์: {prediction}")
+
+elif page == "เครดิต":
+    st.title("เครดิต & แหล่งอ้างอิง")
+    
+    st.header("ผู้พัฒนา")
+    st.write("- [ชื่อ-นามสกุล นักศึกษาคนที่ 1] รหัสนักศึกษา [รหัสนักศึกษา]")
+    
+    st.header("ชุดข้อมูล")
+    st.write("### ชุดข้อมูลที่ 1: ข้อมูลยอดขาย")
+    st.write("ที่มา: [Walmart Sales Data Analysis](https://github.com/Kash1r/Walmart-Sales-Data-Analysis)")
+    st.write("ชุดข้อมูลนี้มีข้อมูลยอดขายของร้านค้าที่ได้รับอิทธิพลจากปัจจัยต่างๆ เช่น วันที่, อุณหภูมิ, ราคาน้ำมัน, CPI, และอัตราการว่างงาน")
+    
+    st.write("### ชุดข้อมูลที่ 2: ภาพสภาพอากาศ")
+    st.write("ที่มา: [Multi-class Weather Dataset](https://www.kaggle.com/datasets/janmejaybhoi/multi-class-weather-dataset)")
+    st.write("ชุดข้อมูลนี้ประกอบด้วยภาพสภาพอากาศแบ่งเป็น 4 ประเภท: มีเมฆมาก, ฝนตก, แดดจัด, และพระอาทิตย์ขึ้น")
+    
+    st.header("เทคโนโลยีที่ใช้")
+    st.write("### ไลบรารี")
+    st.markdown("""
+    - **Streamlit**: พัฒนาเว็บแอปพลิเคชัน
+    - **Pandas & NumPy**: จัดการและวิเคราะห์ข้อมูล
+    - **Scikit-learn**: ใช้สำหรับโมเดล Machine Learning (Random Forest, Linear Regression)
+    - **TensorFlow/Keras**: สร้างและฝึกโมเดล Neural Network
+    - **Pillow**: จัดการภาพ
+    - **Joblib**: บันทึกและโหลดโมเดล Machine Learning
+    """)
