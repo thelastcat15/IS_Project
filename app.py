@@ -1,3 +1,5 @@
+import os
+import gdown
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -30,7 +32,20 @@ def predict_image(img, model):
 # โหลดโมเดลที่ฝึกไว้
 rf_model = joblib.load("random_forest_model.pkl")
 lr_model = joblib.load("linear_regression_model.pkl")
-nn_model = load_model("nn_model.h5")
+file_id = '1mMivV3wmO9u00yWt0tXbIMY7OTEhYKv7'
+
+# Output file path
+output_path = 'nn_model.h5'
+
+# Download the file from Google Drive
+url = f'https://drive.google.com/uc?id={file_id}'
+gdown.download(url, output_path, quiet=False)
+
+# Load the model
+if os.path.exists(output_path):
+    nn_model = load_model(output_path)
+else:
+    st.error("Failed to download the model file.")
 
 # UI ของแอป Streamlit
 st.sidebar.title("เมนูนำทาง")
@@ -89,9 +104,6 @@ elif page == "ทดสอบ Neural Network":
 
 elif page == "เครดิต":
     st.title("เครดิต & แหล่งอ้างอิง")
-    
-    st.header("ผู้พัฒนา")
-    st.write("- [ชื่อ-นามสกุล นักศึกษาคนที่ 1] รหัสนักศึกษา [รหัสนักศึกษา]")
     
     st.header("ชุดข้อมูล")
     st.write("### ชุดข้อมูลที่ 1: ข้อมูลยอดขาย")
