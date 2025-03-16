@@ -30,8 +30,8 @@ def predict_image(img, model):
     return class_names[predicted_class_index]
 
 # โหลดโมเดลที่ฝึกไว้
-rf_model = joblib.load("random_forest_model.pkl")
-lr_model = joblib.load("linear_regression_model.pkl")
+rf_model = joblib.load("./random_forest_model.pkl")
+lr_model = joblib.load("./linear_regression_model.pkl")
 file_id = '1mMivV3wmO9u00yWt0tXbIMY7OTEhYKv7'
 
 # Output file path
